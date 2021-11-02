@@ -1,0 +1,20 @@
+
+
+#calculator {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clear {
+    width: 100%;
+}
+
+#zero {
+    @extend #clear;
+}
+
+#equals {
+    @extend #clear;
+}
