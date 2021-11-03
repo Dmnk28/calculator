@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, IconButton } from "@mui/material";
 import { evaluate } from 'mathjs';
 
 const Calculator = () => {
@@ -55,61 +55,61 @@ const Calculator = () => {
             sx={{ mx: "auto", px: "3rem", maxWidth: "700px" }}
         >
             <Grid item key="calc-display" xs={12} id="calc-display">
-                {(displayLast) ? displayLast : ''}
+                {displayLast}
             </Grid>
             <Grid item key="display" xs={12} id="display">
                 {(calc === '') ? result : calc}
             </Grid>
             <Grid item key="AC" xs={6}>
-                <Button id="clear" onClick={handleClear}>AC</Button>
+                <Button variant="outlined" color="error" id="clear" onClick={handleClear} >AC</Button>
             </Grid>
             <Grid item key="/" xs={3}>
-                <Button id="divide"  value="/" onClick={handleOperatorInput}>/</Button>
+                <Button id="divide" variant="contained" color="secondary" className="operator-btn" value="/" onClick={handleOperatorInput}>/</Button>
             </Grid>
             <Grid item key="x" xs={3}>
-                <Button id="multiply" value="*" onClick={handleOperatorInput}>x</Button>
+                <Button id="multiply" variant="contained" color="secondary" className="operator-btn" value="*" onClick={handleOperatorInput}>x</Button>
             </Grid>
             <Grid item key="7" xs={3}>
-                <Button id="seven" value="7" onClick={handleNumberInput}>7</Button>
+                <Button id="seven" variant="contained" className="number-btn" value="7" onClick={handleNumberInput}>7</Button>
             </Grid>
             <Grid item key="8" xs={3}>
-                <Button id="eight" value="8" onClick={handleNumberInput}>8</Button>
+                <Button id="eight" variant="contained" className="number-btn" value="8" onClick={handleNumberInput}>8</Button>
             </Grid>
             <Grid item key="9" xs={3}>
-                <Button id="nine" value="9" onClick={handleNumberInput}>9</Button>
+                <Button id="nine" variant="contained" className="number-btn" value="9" onClick={handleNumberInput}>9</Button>
             </Grid>
             <Grid item key="-" xs={3}>
-                <Button id="subtract" value="-" onClick={handleOperatorInput}>-</Button>
+                <Button id="subtract" variant="contained" color="secondary" className="operator-btn" value="-" onClick={handleOperatorInput}>-</Button>
             </Grid>
             <Grid item key="4" xs={3}>
-                <Button id="four" value="4" onClick={handleNumberInput}>4</Button>
+                <Button id="four" variant="contained" className="number-btn" value="4" onClick={handleNumberInput}>4</Button>
             </Grid>
-            <Grid item key="5" xs={3}>
-                <Button id="five" value="5" onClick={handleNumberInput}>5</Button>
+            <Grid item key="5" xs={3}> 
+                <Button id="five" variant="contained" className="number-btn" value="5" onClick={handleNumberInput}>5</Button>
             </Grid>
             <Grid item key="6" xs={3}>
-                <Button id="six" value="6" onClick={handleNumberInput}>6</Button>
+                <Button id="six" variant="contained" className="number-btn" value="6" className="number-btn" onClick={handleNumberInput}>6</Button>
             </Grid>
             <Grid item key="+" xs={3}>
-                <Button id="add" value="+" onClick={handleOperatorInput}>+</Button>
+                <Button id="add" variant="contained" color="secondary" className="operator-btn"value="+" onClick={handleOperatorInput}>+</Button>
             </Grid>
             <Grid item key="1" xs={3}>
-                <Button id="one" value="1" onClick={handleNumberInput}>1</Button>
+                <Button id="one" variant="contained" className="number-btn" value="1" onClick={handleNumberInput}>1</Button>
             </Grid>
             <Grid item key="2" xs={3}>
-                <Button id="two" value="2" onClick={handleNumberInput}>2</Button>
+                <Button id="two" variant="contained" className="number-btn" value="2" onClick={handleNumberInput}>2</Button>
             </Grid>
             <Grid item key="3" xs={3}>
-                <Button id="three" value="3" onClick={handleNumberInput}>3</Button>
+                <Button id="three" variant="contained" className="number-btn" value="3" onClick={handleNumberInput}>3</Button>
             </Grid>
             <Grid item key="." xs={3}>
-                <Button id="decimal" onClick={handleDecimal}>.</Button>
+                <Button id="decimal" variant="contained" color="secondary" className="operator-btn" onClick={handleDecimal}>.</Button>
             </Grid>
             <Grid item key="0" xs={6}>
-                <Button id="zero" value="0" onClick={handleNumberInput}>0</Button>
+                <Button id="zero" variant="contained" className="number-btn" value="0" onClick={handleNumberInput}>0</Button>
             </Grid>
             <Grid item key="=" xs={6}>
-                <Button id="equals" onClick={handleEquals}>=</Button>
+                <Button id="equals" variant="contained" color="success" onClick={handleEquals}>=</Button>
             </Grid>
         </Grid>
     </div>

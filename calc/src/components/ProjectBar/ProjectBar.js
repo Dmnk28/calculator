@@ -145,7 +145,7 @@ const ProjectBar = (props) => {
                     </Link>
 
                     <Link className="pbar-link" href="https://do-webdev.de" target="_self">
-                        <ListItem button key="portfolio">
+                        <ListItem button key="portfolio" disabled>
                             <ListItemIcon><ArrowBackIcon /></ListItemIcon>
                             <ListItemText primary="Back to my portfolio"></ListItemText>
                         </ListItem>
