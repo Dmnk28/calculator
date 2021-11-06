@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Grid, IconButton } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { evaluate } from 'mathjs';
 
 const Calculator = () => {
@@ -88,10 +88,10 @@ const Calculator = () => {
                 <Button id="five" variant="contained" className="number-btn" value="5" onClick={handleNumberInput}>5</Button>
             </Grid>
             <Grid item key="6" xs={3}>
-                <Button id="six" variant="contained" className="number-btn" value="6" className="number-btn" onClick={handleNumberInput}>6</Button>
+                <Button id="six" variant="contained" className="number-btn" value="6" onClick={handleNumberInput}>6</Button>
             </Grid>
             <Grid item key="+" xs={3}>
-                <Button id="add" variant="contained" color="secondary" className="operator-btn"value="+" onClick={handleOperatorInput}>+</Button>
+                <Button id="add" variant="contained" color="secondary" className="operator-btn" value="+" onClick={handleOperatorInput}>+</Button>
             </Grid>
             <Grid item key="1" xs={3}>
                 <Button id="one" variant="contained" className="number-btn" value="1" onClick={handleNumberInput}>1</Button>

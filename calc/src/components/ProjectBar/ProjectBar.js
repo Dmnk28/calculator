@@ -1,24 +1,28 @@
 import React, { useState } from "react";
 import { Divider, SwipeableDrawer, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Popover, Typography } from "@mui/material";
-//import { marked } from 'marked';      // Wait untill 4.0.0 ist bugfree!
-//import DOMPurify from 'dompurify';
+import marked from 'marked';      
+import DOMPurify from 'dompurify';
 
-// Icons
+// Material Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import CloseIcon from '@mui/icons-material/Close';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import HomeIcon from '@mui/icons-material/Home';
+import EmailIcon from '@mui/icons-material/Email';
+// FontAwesome Icons
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFreeCodeCamp} from '@fortawesome/free-brands-svg-icons/faFreeCodeCamp';
 import {faCode} from '@fortawesome/free-solid-svg-icons/faCode';
 import {faAlignLeft} from '@fortawesome/free-solid-svg-icons/faAlignLeft';
-import CloseIcon from '@mui/icons-material/Close';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Styles
 import './styles/projectbar.css'
 
 // Data
-// import readme_copy from './_readme_copy'
+import readme_copy from './_readme_copy'
 
 const ProjectBar = (props) => {
     const [drawerState, setDrawerState] = useState(false);
@@ -43,13 +47,12 @@ const ProjectBar = (props) => {
     const readmePopover = readmeOpen ? 'readme-popover' : undefined;
 
     const loadReadme = () => {
-        // let dirtyHTML = marked('# readme_copy');
-        // return marked.parse('# readme_copy');    // Testreturn
-        //return(DOMPurify.sanitize(marked(readme_copy), {USE_PROFILES: {html:true}}));
+        let dirtyHTML = marked.parse(readme_copy);
+        return(DOMPurify.sanitize(dirtyHTML, {USE_PROFILES: {html:true}}));
     }
 
     return (
-        <React.Fragment key="projectbar" id="projectbar">
+        <React.Fragment key="projectbar">
             <div id="button-div">
                 <IconButton color='primary' onClick={toggleDrawer(true)}><DoubleArrowIcon></DoubleArrowIcon></IconButton>
             </div>
@@ -58,8 +61,7 @@ const ProjectBar = (props) => {
                     width: 300,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: 300,
-                        boxSizing: 'border-box',
+                        width: 300
                     },
                 }}
                 anchor  =   "left"
@@ -127,6 +129,13 @@ const ProjectBar = (props) => {
                             <ListItemText primary="Inspect the Code"></ListItemText>
                         </ListItem>
                     </Link>
+
+                    <Link className="pbar-link" href="mailto:dominik.oesterle@posteo.de">
+                        <ListItem button key="repository">
+                            <ListItemIcon><EmailIcon /></ListItemIcon>
+                            <ListItemText primary="Report a Bug"></ListItemText>
+                        </ListItem>
+                    </Link>
                     
                     <Divider />
                     
@@ -143,13 +152,30 @@ const ProjectBar = (props) => {
                             <ListItemText primary="LinkedIn Profile"></ListItemText>
                         </ListItem>
                     </Link>
+                    
+                    <Divider />
 
-                    <Link className="pbar-link" href="https://do-webdev.de" target="_self">
-                        <ListItem button key="portfolio" disabled>
-                            <ListItemIcon><ArrowBackIcon /></ListItemIcon>
-                            <ListItemText primary="Back to my portfolio"></ListItemText>
+                    <Link className="pbar-link" href={props.next} target="_self">
+                        <ListItem button key="portfolio">
+                            <ListItemIcon><ArrowForwardIcon /></ListItemIcon>
+                            <ListItemText primary="Next FCC Project"></ListItemText>
                         </ListItem>
                     </Link>
+                    
+                    <Link className="pbar-link" href={props.previous} target="_self">
+                        <ListItem button key="portfolio">
+                            <ListItemIcon><ArrowBackIcon /></ListItemIcon>
+                            <ListItemText primary="Previous FCC Project"></ListItemText>
+                        </ListItem>
+                    </Link>
+
+                    <Link className="pbar-link" href="#" target="_self">
+                        <ListItem button key="portfolio" disabled>
+                            <ListItemIcon><HomeIcon /></ListItemIcon>
+                            <ListItemText primary="Portfolio"></ListItemText>
+                        </ListItem>
+                    </Link>
+
                 </List>
             </SwipeableDrawer>
         </React.Fragment>

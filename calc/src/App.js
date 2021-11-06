@@ -15,6 +15,8 @@ function App() {
           userStory   =   'https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator'
           repository  =   'https://github.com/Dmnk28/calculator'
           readme      =   'https://github.com/Dmnk28/calculator/blob/main/README.md'
+          next        =   'https://do-webdev.de/projects/timer'
+          previous    =   'https://do-webdev.de/projects/drums'
       />
       <Calculator />
     </div>
