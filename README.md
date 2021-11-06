@@ -1,4 +1,4 @@
-# calculator
+# JavaScript Calculator
 The principal proceeding seemed very clear for me in the beginning -- I thought it has to be very similar to the first vanilla JavaScript tutorials I followed (and it realy was, kind of). But the Out- and Inputfeature (instead of plain JS-calculations in the console) let me struggle soon. 
 
 I managed to find a effective way to handle the task given with using the math.js library for parsing strings and use them as operations. 
